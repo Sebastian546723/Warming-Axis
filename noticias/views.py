@@ -7,7 +7,6 @@ import threading
 newsapi = NewsApiClient(api_key='3e10e6f5c0d046a7aef93f1db3e778a9')
 
 def SearchLoop():
-    print("hello")
     def searchNews():
         newsLoaded = 0
         while newsLoaded < 3:
