@@ -1,30 +1,20 @@
-{% extends "base.html" %}
-{% block title %} Noticias {% endblock %}
-
-{% block extra_head %}
-{% endblock %}
-
-{% block seccion %}
-    NOTICIAS
-{% endblock %}
-
-{% block content %}
-<div class = "mainBlock">
-    {% for i in articles|slice:"0:3"%}
-    <div class = "newsBlock">
+{% extends "base.html" %} {% block title %} Noticias {% endblock %} {% block extra_head %} {% endblock %} {% block seccion %} NOTICIAS {% endblock %} {% block content %}
+<div class="mainBlock">
+    {% for i in articles%}
+    <div class="newsBlock">
         <h3>{{i.title}}</h3>
 
         <div class="newsIMG">
-            <img src = "{{i.urlToImage}}"/>
+            <img src="{{i.urlToImage}}" />
         </div>
 
         <p>{{i.description}}</p>
 
-        <div class = "Links">
-        <a src = {{i.url}}>go to {{i.source.name}}</a>
+        <div class="Links">
+            <a src={ {i.url}}>go to {{i.source.name}}</a>
         </div>
 
-        </div>
+    </div>
     {% endfor %}
 </div>
 {% endblock%}

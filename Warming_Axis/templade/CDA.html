@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            background-color: #eee;
+            position: absolute;
+            border-radius: 10px;
+        }
+        
+        .city {
+            position: relative;
+            display: block;
+            float: left;
+            border: 2px solid #555;
+            background-color: #fff;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        
+        .city>div>span {
+            padding: 0 15px!important;
+            font-size: 44px;
+        }
+    </style>
+    <div class="container" id="mutiple-city-aqi"> </div>
+    <script type="text/javascript" charset="utf-8">
+        (function(w, d, t, f) {
+            w[f] = w[f] || function(c, k, n) {
+                s = w[f], k = s['k'] = (s['k'] || (k ? ('&k=' + k) : ''));
+                s['c'] =
+                    c = (c instanceof Array) ? c : [c];
+                s['n'] = n = n || 0;
+                L = d.createElement(t), e = d.getElementsByTagName(t)[0];
+                L.async = 1;
+                L.src = 'https://feed.aqicn.org/feed/' + (c[n].city) + '/' + (c[n].lang || 'es') + '/feed.v1.js?n=' + n + k;
+                e.parentNode.insertBefore(L, e);
+            };
+        })(window, document, 'script', '_aqiFeed');
+        var cities = ["London", "Santiago", "seoul", "guangzhou", "tokyo", "shanghai", "paris", "hongkong"];
+
+        var aqiWidgetConfig = [];
+        cities.forEach(function(city) {
+            aqiWidgetConfig.push({
+                city: city,
+                callback: displayCity
+            });
+        });
+        _aqiFeed(aqiWidgetConfig);
+
+        function displayCity(aqi) {
+            document.getElementById("mutiple-city-aqi").innerHTML += (aqi.text("<center class='city'>%cityname<br>%aqi<br><small>%date</small></center>"));
+        };
+    </script>
+
+</head>
+
+</html>

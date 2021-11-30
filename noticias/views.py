@@ -9,8 +9,8 @@ newsapi = NewsApiClient(api_key='3e10e6f5c0d046a7aef93f1db3e778a9')
 def SearchLoop():
     def searchNews():
         newsLoaded = 0
+        PageNews = 1
         while newsLoaded < 3:
-            PageNews = 1
             top_headlines = newsapi.get_everything(q='Cambio climatico',
                                     sort_by='relevancy',
                                     language='es')
@@ -35,6 +35,13 @@ def SearchLoop():
 
 hilo = threading.Thread(target=SearchLoop)
 hilo.start()
+
+NewsList = {'articles':[]}
+IDs = list(ModelObject.News.objects.value('id'))
+
+for i in range(1,4):
+    getNews = ModelObject.News.objects.value(id = IDs[-i])
+    
 
 def noticias(request):
     return render(request, "noticias.html")
