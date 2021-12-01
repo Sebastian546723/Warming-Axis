@@ -4,7 +4,7 @@ from noticias import models as ModelObject
 import time
 import threading
 
-newsapi = NewsApiClient(api_key='b585c643d93e40fd852c4cc7a8933a7e')#3e10e6f5c0d046a7aef93f1db3e778a9
+newsapi = NewsApiClient(api_key='3e10e6f5c0d046a7aef93f1db3e778a9')
 
 """def SearchLoop():
     def searchNews():
@@ -31,14 +31,14 @@ newsapi = NewsApiClient(api_key='b585c643d93e40fd852c4cc7a8933a7e')#3e10e6f5c0d0
 
     while True:
         searchNews()
-        time.sleep(86400)
+        time.sleep(864)
 
 hilo = threading.Thread(target=SearchLoop)
 hilo.start()"""
 
 NewsList = {'articles':[]}
 ForoId = {"ids": []}
-#ModelObject.News.objects.all().order_by('-id')[:3]
+
 IDs= list(ModelObject.News.objects.values('id'))
 
 for i in range(1,4):

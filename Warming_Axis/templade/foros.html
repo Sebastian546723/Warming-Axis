@@ -1,5 +1,13 @@
-{% extends 'base.html' %} {% block title %} Foros {% endblock %} {% block seccion %} FOROS {% endblock %} {% block content %} {% for i in ids%}
-<button onclick="reset('newid{{i}}', 'http://prueba.com/article{{i}}/', 'Article Title {{i}}', 'es');">Load article {{i}}</button> {% endfor %}
+{% extends 'base.html' %} 
+{% block title %} Foros {% endblock %} 
+{% block seccion %} 
+FOROS 
+{% endblock %} 
+{% block content %} 
+
+{% for i in ids%}
+<button onclick="reset('newid{{i}}', 'http://prueba.com/article{{i}}/', 'Article Title {{i}}', 'es');">Load article {{i}}</button> 
+{% endfor %}
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
