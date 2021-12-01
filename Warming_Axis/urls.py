@@ -25,6 +25,6 @@ urlpatterns = [
     path('inicio/',local_views.Inicio, name="inicio"),
     path('noti/',local_views.noticias,),
     path('info/',local_views.informacion, name='info'),
-    path('foros/',local_views.foros, name='foros'),
+    path('foros/',news_views.foros, name='foros'),
     path('acerca_de/',local_views.acerca, name='acerca'),
 ]

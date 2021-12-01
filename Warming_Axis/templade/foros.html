@@ -1,14 +1,5 @@
-{% extends 'base.html' %}
-
-{% block title %} Foros {% endblock %}
-
-{% block seccion %} FOROS {% endblock %}
-
-{% block content %} 
-
-<button onclick="reset('newid7', 'http://prueba.com/article7/', 'Article Title 7', 'es');">Load article 1</button>
-<button onclick="reset('newid90', 'http://prueba.com/article90/', 'Article Title 90', 'es');">Load article 2</button>
-<button onclick="reset('newid5', 'http://prueba.com/article5/', 'Article Title 5', 'es');">Load article 3</button>
+{% extends 'base.html' %} {% block title %} Foros {% endblock %} {% block seccion %} FOROS {% endblock %} {% block content %} {% for i in ids%}
+<button onclick="reset('newid{{i}}', 'http://prueba.com/article{{i}}/', 'Article Title {{i}}', 'es');">Load article {{i}}</button> {% endfor %}
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -16,22 +7,24 @@
     var disqus_shortname = 'pruebaforo-1';
     var disqus_identifier = 'newid7';
     var disqus_url = 'https://pruebaforo-1.disqus.com/embed.js';
-	var disqus_config = function () { 
-	  this.language = "es";
-	};
+    var disqus_config = function() {
+        this.language = "es";
+    };
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 
     /* * * Disqus Reset Function * * */
-    var reset = function (newIdentifier, newUrl, newTitle, newLanguage) {
+    var reset = function(newIdentifier, newUrl, newTitle, newLanguage) {
         DISQUS.reset({
             reload: true,
-            config: function () {
+            config: function() {
                 this.page.identifier = newIdentifier;
                 this.page.url = newUrl;
                 this.page.title = newTitle;
@@ -41,6 +34,4 @@
     };
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-{% endblock %}
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> {% endblock %}
