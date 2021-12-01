@@ -6,7 +6,7 @@ import threading
 
 newsapi = NewsApiClient(api_key='3e10e6f5c0d046a7aef93f1db3e778a9')
 
-"""def SearchLoop():
+def SearchLoop():
     def searchNews():
         newsLoaded = 0
         PageNews = 1
@@ -31,10 +31,10 @@ newsapi = NewsApiClient(api_key='3e10e6f5c0d046a7aef93f1db3e778a9')
 
     while True:
         searchNews()
-        time.sleep(864)
+        time.sleep(86400)
 
 hilo = threading.Thread(target=SearchLoop)
-hilo.start()"""
+hilo.start()
 
 NewsList = {'articles':[]}
 ForoId = {"ids": []}
@@ -58,4 +58,4 @@ def noticias(request):
     return render(request, "noticias.html", NewsList)
 
 def foros(request):
-    return render(request, "foros.html")
+    return render(request, "foros.html", ForoId)

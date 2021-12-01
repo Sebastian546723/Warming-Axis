@@ -56,7 +56,7 @@ ROOT_URLCONF = 'Warming_Axis.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'C:\\Users\\esteb\\Desktop\\Intro-Ingenieria\\Warming_Axis\\Warming_Axis\\templade'],
+        'DIRS': [BASE_DIR / 'C:\\Users\\sebas\\Desktop\\Warming-Axis\\Warming_Axis\\templade'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
