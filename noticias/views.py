@@ -56,8 +56,8 @@ getIDs()
 
 def SearchLoop():
     
-    schedule.every().day.at("18:05").do(searchNews)
-    schedule.every().day.at("18:07").do(getIDs)
+    schedule.every().day.at("23:55").do(searchNews)
+    schedule.every().day.at("23:59").do(getIDs)
 
     while True:
         schedule.run_pending()
