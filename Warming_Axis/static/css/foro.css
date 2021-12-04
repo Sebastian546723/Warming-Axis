@@ -1,0 +1,49 @@
+.TitleWrapper{
+    margin: 2% 25%;
+}
+
+.TitleWrapper h2{
+    font-family: 'Anton', sans-serif;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    background-color: #eb4d4b;
+    color: #ffffff;
+    margin: 5% 15%;
+    border-radius: 5px;
+    font-size: 300%;
+    -webkit-box-shadow: -1px 2px 17px -3px #c92a2a; 
+    box-shadow: -1px 2px 17px -3px #a51717;
+}
+
+.TitleWrapper p{
+    font-family: 'Dosis', sans-serif;
+    font-size: 150%;
+}
+
+.ChatWrapper{
+   width: 80%;
+   margin: 2% 10%;
+}
+
+.ChatWrapper h3{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    color: #ff3838;
+}
+
+.ChatCard{
+    margin:  0% 1%;
+    -webkit-box-shadow: -1px 2px 17px -3px #000000; 
+    box-shadow: -1px 2px 17px -3px #000000;
+}
+
+.ChatCard h5{
+    font-family: 'Oswald', sans-serif;
+    font-size: 150%;
+}
+
+.ChatCard p{
+    font-family: 'Dosis', sans-serif;
+}

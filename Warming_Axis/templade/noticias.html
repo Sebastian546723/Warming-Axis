@@ -1,4 +1,12 @@
-{% extends "base.html" %} {% block title %} Noticias {% endblock %} {% block extra_head %} {% endblock %} {% block seccion %} NOTICIAS {% endblock %} {% block content %}
+{% extends "base.html" %} 
+{% block title %} Noticias {% endblock %} 
+
+{% load static %}
+{% block cssBlock %}<link rel="Stylesheet" type="text/css" href="{% static 'css/noticias.css' %}"/>{% endblock %} 
+
+{% block seccion %} NOTICIAS {% endblock %} 
+
+{% block content %}
 <div class="mainBlock">
     {% for i in articles%}
     <div class="newsBlock">
