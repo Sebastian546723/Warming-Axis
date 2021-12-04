@@ -1,5 +1,5 @@
 #cuerpo {
-    background: linear-gradient(rgba(5,7,12,0.5),rgba(5,7,12,0.5)), url(../img/imagenfondo.png);
+    background: linear-gradient(rgba(5,7,12,0.5),rgba(5,7,12,0.5)), url("..\\img\\imagenfondo.png");
     background-position: center;
     background-size: cover;
 }

@@ -1,5 +1,10 @@
 .TitleWrapper{
-    margin: 2% 25%;
+    width: 100%;
+    padding: 5% 25%;
+    background: linear-gradient(rgba(5,7,12,0.5),rgba(5,7,12,0.5)), url("..\\img\\fondoForo.jpg");
+    background-size: cover;                  
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .TitleWrapper h2{
@@ -16,6 +21,7 @@
 }
 
 .TitleWrapper p{
+    color: aliceblue;
     font-family: 'Dosis', sans-serif;
     font-size: 150%;
 }
