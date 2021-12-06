@@ -1,0 +1,15 @@
+.city {
+   position: relative;
+   display: block;
+   float: left;
+   border: 1px solid #555;
+   background-color: #fff;
+   padding: 10px;
+   margin: 10px;
+   border-radius: 10px;
+}
+
+.city>div>span {
+   padding: 0 15px!important;
+   font-size: 44px;
+}

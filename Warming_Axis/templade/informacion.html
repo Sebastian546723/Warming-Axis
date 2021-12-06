@@ -1,31 +1,9 @@
-{% extends 'base.html' %} {% block title %} Información {% endblock %} {% block seccion %} INFORMACIÓN {% endblock %}{% block content %}
+{% extends 'base.html' %} {% load static %} {% block title %} Información {% endblock %} {% block seccion %} INFORMACIÓN {% endblock %} {% block content %}
 
-
-<style>
-    .container {
-        background-color: #eee;
-        position: absolute;
-        border-radius: 10px;
-    }
-    
-    .city {
-        position: relative;
-        display: block;
-        float: left;
-        border: 2px solid #555;
-        background-color: #fff;
-        padding: 10px;
-        margin: 10px;
-        border-radius: 10px;
-    }
-    
-    .city>div>span {
-        padding: 0 15px!important;
-        font-size: 44px;
-    }
-</style>
-<div class="container" id="mutiple-city-aqi"> </div>
-<script type="text/javascript" charset="utf-8">
+<!-- Ignorar -->
+<link rel="stylesheet" href="../static/css/CDA.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
     (function(w, d, t, f) {
         w[f] = w[f] || function(c, k, n) {
             s = w[f], k = s['k'] = (s['k'] || (k ? ('&k=' + k) : ''));
@@ -38,7 +16,8 @@
             e.parentNode.insertBefore(L, e);
         };
     })(window, document, 'script', '_aqiFeed');
-    var cities = ["London", "Santiago", "seoul", "guangzhou", "tokyo", "shanghai", "paris", "hongkong"];
+
+    var cities = ["beijing", "Santiago", "seoul", "delhi", "paris", "hongkong", "london", 'kyoto', 'Temuco', 'berlin'];
 
     var aqiWidgetConfig = [];
     cities.forEach(function(city) {
@@ -51,6 +30,139 @@
 
     function displayCity(aqi) {
         document.getElementById("mutiple-city-aqi").innerHTML += (aqi.text("<center class='city'>%cityname<br>%aqi<br><small>%date</small></center>"));
-    };
+    }
 </script>
-{% endblock %}
+<script id="a">
+    $.ajax({
+        url: "http://api.weatherunlocked.com/api/current/-35.67,-71.54?app_id=2da176ee&app_key=c631ff1dabd5ee1e9a44d801ddade826",
+        type: "GET",
+        success: function a(parsedResponse, statusText, jqXhr) {
+            var t = (parsedResponse.temp_c);
+            document.getElementById('temp').innerHTML += (t)
+        },
+    });
+</script>
+<style>
+    .Indice {
+        position: fixed;
+        right: 30px;
+    }
+</style>
+<!-- terminar de Ignorar -->
+
+
+<div class="container vw-100">
+    <div class="row">
+        <!-- Informacion -->
+        <div class="col-10">
+            <div clas='row'>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                    <article class="card my-2 col-11 bg-success p-2 bd-highlight" style="--bs-bg-opacity: .25">
+                        <div class="card-body ">
+                            <div>
+                                <h2 class="mb-3" id='que'>¿Qué es el Cambio Climático?</h2>
+                                <img src="{% static 'img\\CC12.jpg' %}" class="rounded-3 border border-secondary float-start me-3 " height="190px " /><br>
+                                <p class="text-end">La tierra se calienta y enfría en varias ocasiones por causa natural, sin embargo en la actualidad estos procesos que antes demoraba millones de años ahora está sucediendo en un par de décadas, por lo cual debido a la actividad
+                                    humana actualmente estamos alcanzando niveles que catastroficos trayendo tiempos que provocan extinciones en apenas doscientos años.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex flex-row bd-highlight">
+                    <article class="card my-2 col-11 bg-primary p-2 bd-highlight" style="--bs-bg-opacity: .25">
+                        <div class="card-body">
+                            <div class="row">
+                                <h2 class="mb-3" id='causas'>Causas del Cambio Climático</h2>
+                                <p>La principal causa del Cambio Climático es el calentamiento global, estos dos aunque parecen lo mismo son distintos ya que uno es consecuencia del otro, el calentamiento global tiene variados efectos negativos en el ecosistema.
+                                    El efecto invernadero es un proceso natural que permite albergar la vida en la tierra y sin este la temperatura media del planeta sería de 15°C bajo cero, en lugar de 18°C sobre cero aproximadamente, en tiempo real
+                                    la temperatura de Chile es de <strong><b id="temp"></b>°C.</strong></p>
+
+                                <p>En una proporción adecuada diversos gases permiten que la atmósfera retenga el calor del sol, sin embargo con la intervención humana desequilibra la proporción adecuada, entre esta intervención existe la emisión de gases
+                                    de efecto invernadero en la atmósfera lo cual provoca que se retenga más calor del necesario aumentando de manera antinatural la temperatura media del planeta lo que provoca lo que todos llamamos calentamiento global.
+                                    Desde hace unos 15 años los datos recogidos por miles de científicos en el mundo a través de observatorios, revelaron que un 97% del calentamiento global se origina del efecto invernadero por causa humana.</p>
+                                <ul>
+                                    <li>Los gases de efecto invernadero son varios y entre los más destacados está el Dióxido de Carbono (CO2), Metano (CH4), Ozono troposférico, óxido de nitrógeno, y estos son provocados principalmente por la quema de combustibles
+                                        fósiles para diversas causas cómo el transporte, también son provocados por la ganadería y tratamientos de aguas residuales entre otros. A continuación les compartimos información en tiempo real sobre la calidad
+                                        del aire en general en distintos países a nivel mundial:</li>
+                                </ul>
+                            </div>
+
+                            <!-- API DE CALIDAD DEL AIRE -->
+                            <div class="row my-2" id='calidad'>
+                                <div class="container " id="mutiple-city-aqi"></div>
+                            </div>
+                            <!-- FIN API-->
+                            <div class="row ">
+                                <ul><br>
+                                    <img src="{% static 'img/Calor.jpg' %}" class="rounded-3 border border-secondary float-end ms-3 " height="180px ">
+                                    <li>Otra de las causas del cambio climático es el crecimiento exponencial de la población mundial, esto es debido a que hoy en día existe sobrepoblación en el planeta con más de 7.700 millones de personas, una población
+                                        numerosa necesita numeroso recursos y entre más crezca más recursos necesita, lo que en parte aumenta la emisión de gases de efecto invernadero para la producción de los recursos necesarios.</li><br>
+                                    <li>Otro de los problemas es la constante destrucción de ecosistemas y deforestación del planeta, ya que hoy en día varios bosques y selvas desaparecen a una velocidad descontrolada, en los últimos años se han llegado a
+                                        destruir aproximadamente 13 millones de hectáreas, lo cual elimina a lo que naturalmente descontamina nuestro aire.</li><br>
+                                    <img src="../static/img/Mar.jpg" class="rounded-3 border border-secondary float-start me-5 " height="180px ">
+                                    <li> Además de los bosques otro ecosistema que nos ayuda en la limpieza del aire son los ecosistemas marinos el cual absorbe cerca del 50% del CO2 aire, sin embargo a través del vertimiento de desechos en el mar el ecosistema
+                                        se ha arruinado y debido a el exceso de CO2 se ha acidificado el océano lo que produce muertes tanto de la flora y fauna marítima.</li><br>
+                                </ul>
+                            </div>
+                    </article>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex flex-row-reverse bd-highlight">
+                        <article class="card my-2 col-11 bg-danger p-2 bd-highlight" style="--bs-bg-opacity: .25">
+                            <div class="card-body">
+                                <h2 class="mb-3" id='consecuencia'>Consecuencia del Cambio Climático</h2>
+                                <p class="text-end">Uno de los impactos es el hecho que la última década ha sido la más calurosa registrada en la historia, siendo el año 2020 el segundo año más caluroso ligeramente por debajo de la temperatura máxima del año 2016.</p>
+                                <img src="../static/img/Hielo.jfif " class="rounded-3 border border-secondary float-start me-3" height="170px ">
+                                <p class="text-end">Entre las principales consecuencias del cambio climático resalta el derretimiento del hielo de los polos, lo que aumenta el nivel del mar, lo que a su vez genera inundaciones y amenaza a los litorales costeros.También resalta</p>
+                                <p class="text-end">También resalta la aparición de fenómenos meteorológicos más peligrosos y violentos cómo sequías, desertificación de ecosistemas, incendios, desbordamientos de ríos y lagos, destrucción de los medios de subsistencia y económicos.
+                                    Fenómenos climáticos como ‘El Niño' se han vuelto cada vez más irregulares y han provocado terribles sequías en zonas que ya estaban amenazadas por una aridez crónica.</p>
+                                <img src="../static/img/Extincion.jpg " class="rounded-3 border border-secondary float-end ms-4" height="170px "><br>
+                                <p class="text-end"> Finalmente Debido al cambio climático y el cambio de ecosistemas se ha producido una extinción masivade especies, provocando un promedio de muertes entre 10000 y 50000 especies cada año, además ha producido masivas migraciones
+                                    de humanos refugiados de lo cual se estima que llegue a mil millones de personas en el año 2050.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex flex-row bd-highlight mb-3">
+                        <article class=" card my-2 col-11 bg-secondary p-2 bd-highlight" style="--bs-bg-opacity: .25 ">
+                            <h2 class="mb-3" id="bibliografia">BIBLIOGRAFÍA</h2>
+                            <ul>
+                                <li> ¿Qué es el Cambio Climático y cómo nos afecta? | ACCIONA. (s. f.). Acciona business as unusual. Recuperado 3 de diciembre de 2021, de <a class='text-reset' href="https://www.acciona.com/es/cambio-climatico/?adin=02021864894">https://www.acciona.com/es/cambio-climatico/?adin=02021864894.</a></li><br>
+                                <li> El cambio climático: causas, efectosy remedios. (2021, 7 septiembre). Enel Green Power. Recuperado 3 de diciembre de 2021, de <a class='text-reset' href="https://www.enelgreenpower.com/es/learning-hub/transicion-energetica/cambio-climatico-causas-consecuencias">https://www.enelgreenpower.com/es/learning-hub/transicion-energetica/cambio-climatico-causas-consecuencias.</a></li><br>
+                                <li>The World Air Quality Index project. (s. f.). Contaminación del aire: Índice PM2.5 de Calidad del Aire (ICA) en tiempo real. aqicn.org. Recuperado 6 de diciembre de 2021, de <a class='text-reset' href="https://aqicn.org">https://aqicn.org.</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+                <!-- Indice -->
+            </div>
+            <div class="card my-2 col-2 bg-dark text-light Indice">
+                <div class="card-header">
+                    <h2 class="text-center fs-3"> INDICE </h2>
+                </div>
+                <div class="card-bodi">
+                    <br>
+                    <a href="#que" class='text-reset'>
+                        <p class="fst-italic text-white">¿Qué es el Cambio Climático?</p>
+                    </a><br>
+                    <a href="#causas" class='text-reset'>
+                        <p class="fst-italic text-white">Causas del Cambio Climático</p>
+                    </a><br>
+                    <a href="#calidad" class='text-reset'>
+                        <p class="fst-italic text-white">Calidad del aire en tiempo real</p>
+                    </a><br>
+                    <a href="#consecuencia" class='text-reset'>
+                        <p class="fst-italic text-white">Consecuencia del Cambio Climático</p>
+                    </a><br>
+                    <a href="#bibliografia" class='text-reset'>
+                        <p class="fst-italic text-white">Bibliografía</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

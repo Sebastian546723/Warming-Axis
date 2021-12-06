@@ -22,7 +22,7 @@ from Warming_Axis import views as local_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('noticias/', news_views.noticias, name='noticias'),
-    path('inicio/',local_views.Inicio, name="inicio"),
+    path('',local_views.Inicio, name="inicio"),
     path('noti/',local_views.noticias,),
     path('info/',local_views.informacion, name='info'),
     path('foros/',news_views.foros, name='foros'),
