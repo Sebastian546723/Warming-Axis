@@ -3,9 +3,40 @@
     background-position: center;
     background-size: cover;
 }
+.mainBlock{
+    margin-top: 3.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 5%;
+}
+
+.newsBlock{
+    padding: 15px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-rows: 10% 50% 23% 11%;
+    grid-gap: 2%;
+    -webkit-box-shadow: 1px 5px 19px 6px rgba(0,0,0,0.33); 
+    box-shadow: 1px 5px 19px 6px rgba(0,0,0,0.33);
+}
+
+.newsBlock h3{
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: lighter;
+    font-size: 150%;
+}
+
+.newsBlock p{
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
 
 .newsIMG img{
-    width: 100%;
-    height: 15vw;
-    object-fit: cover; 
+    height: 100%; 
+    width: 100%; 
+    object-fit: cover
 }

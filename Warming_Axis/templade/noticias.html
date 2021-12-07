@@ -12,14 +12,12 @@
         <div class="row align-items-center">
             {% for i in articles%}
             <div class="col">
-                <div class="card text-center mx-auto align-middle w-100 p-3 mt-5 h-100" style="width: 22rem;">
-                    <div class="newsIMG">
-                        <img src="{{i.urlToImage}}" class="card-img-top">
-                    </div>
+                <div class="card text-center mx-auto align-middle w-100 p-3 mt-5" style="width: 22rem;">
+                    <img src="{{i.urlToImage}}" class="card-img-top newsIMG">
                     <div class="card-body">
                         <h5 class="card-title">{{i.title}}</h5>
                         <p class="card-text">{{i.description}}</p>
-                        <a href="{{i.url}}" class="btn btn-primary stretched-link" target="_blank">Leer más</a>
+                        <a href="{{i.url}}" class="btn btn-primary stretched-link">Leer más</a>
                     </div>
                 </div>
             </div>
