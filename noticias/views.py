@@ -7,7 +7,8 @@ import threading
 
 newsapi = NewsApiClient(api_key='3e10e6f5c0d046a7aef93f1db3e778a9')
 
-NewsList = {'articles':[]}
+NewsList = {'articles':[],
+            'error': False}
 
 def getIDs():
     IDs= list(ModelObject.News.objects.values('id'))
@@ -27,25 +28,32 @@ def getIDs():
 
 def searchNews():
     NewsList["articles"] = []
+    NewsList["error"] = False
+    keyWords = ["climate change", "global Warming", "pollution", "climate crisis", "greenhouse effect"]
     newsLoaded = 0
-    PageNews = 1
-    while newsLoaded < 3:
-        top_headlines = newsapi.get_everything(q='Climate Change',
-                                sort_by='relevancy',
-                                language='es')
+    PageNews = 0
+    while newsLoaded < 3 and NewsList["error"] == False:
+        if PageNews == len(keyWords):
+            NewsList["error"] = True
+        else:
+            top_headlines = newsapi.get_everything(q=keyWords[PageNews],
+                                    sort_by='relevancy',
+                                    language='es')
+        if top_headlines["status"] == "error" or len(top_headlines["articles"]) == 0:
+            NewsList["error"] = True
+
         for a in top_headlines["articles"]:
             model = ModelObject.News.objects.filter(Title = a["title"])
             if len(model) == 0:
                 if newsLoaded < 3:
                     ModelObject.News.objects.create(
-                        Title = a["title"],
-                        Description = a["description"],
-                        ImgNews = a["urlToImage"],
-                        URL = a["url"],
-                        Source = a["source"]["name"]
+                        Title = a["title"] or "",
+                        Description = a["description"] or "",
+                        ImgNews = a["urlToImage"] or "",
+                        URL = a["url"] or "",
+                        Source = a["source"]["name"] or ""
                     )
                     newsLoaded += 1
-        
         PageNews +=1
     getIDs()
 
@@ -53,7 +61,6 @@ getIDs()
 
 def SearchLoop():
     schedule.every().day.at("23:59").do(searchNews)
-    #schedule.every().day.at("12:05").do(getIDs)
 
     while True:
         schedule.run_pending()
@@ -65,7 +72,6 @@ hilo.start()
 def noticias(request):
     if len(ModelObject.News.objects.values('id')) == 0:
         searchNews()
-        #getIDs()
 
     return render(request, "noticias.html", NewsList)
 
