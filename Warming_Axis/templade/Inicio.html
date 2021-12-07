@@ -1,11 +1,6 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %} {% load static %} {% block cssBlock %}
+<link rel="Stylesheet" type="text/css" href="{% static 'css/inicio.css' %}" /> {% endblock %} {% block title %} Inicio {% endblock %} {% block seccion %} INICIO {% endblock %} {% block content %}
 
-{% load static %}
-{% block cssBlock %} <link rel="Stylesheet" type="text/css" href="{% static 'css/inicio.css' %}" /> {% endblock %}
-
-{% block title %} Inicio {% endblock %} 
-{% block seccion %} INICIO {% endblock %}
-{% block content %} 
 <body id="cuerpo">
     <div class="bienvenida" style="color: white;">
         <div style="font-family: 'Bebas Neue', cursive;">
@@ -13,9 +8,7 @@
             <p>GLOBAL</p>
         </div>
     </div>
-    
+
 </body>
 
 {% endblock %}
-
-
