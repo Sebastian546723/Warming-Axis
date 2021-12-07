@@ -6,9 +6,12 @@
 {% block seccion %} NOTICIAS {% endblock %} 
 {% block content %}
 <body id=fondo>
-    
-    
     <main class="container">
+        {% if error  %}
+        <div class = "error">
+            <p>Error cargando los articulos intente de nuevo mas tarde.</p>
+        </div>
+        {% else %}
         <div class="row align-items-center">
             {% for i in articles%}
             <div class="col">
@@ -19,12 +22,13 @@
                     <div class="card-body">
                         <h5 class="card-title">{{i.title}}</h5>
                         <p class="card-text">{{i.description}}</p>
-                        <a href="{{i.url}}" class="btn btn-primary stretched-link" target="_blank">Leer más</a>
+                        <a href="{{i.url}}" class="btn btn-primary stretched-link" target="_blank">Leer más en {{i.name}}</a>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
+        {% endif %}
     </main>
 <body>
 {% endblock%}
