@@ -1,16 +1,86 @@
-{% extends 'base.html' %} {% block title %} Acerca de {% endblock %} {% block seccion %} ACERCA DE {% endblock %} {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            ¿QUIENES SOMOS?
+{% extends 'base.html' %} 
+{% load static %}
+{% block cssBlock %} <link rel="Stylesheet" type="text/css" href="{% static 'css/acerca_de.css' %}" /> {% endblock %}
+{% block title %} Acerca de {% endblock %} 
+{% block seccion %} ACERCA DE {% endblock %} 
+{% block content %}
+<link href="..static/css/acerca_de.css" rel="stylesheet">
+<style>
+  .rounded-4 { border-radius: .5rem; }
+  .rounded-5 { border-radius: 1rem; }
+    
+  .text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+  .text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+  .text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+    
+  .card-cover {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+  }
+  
+</style>
+<body id=fondo>
+    <div class="container px-4 py-5" id="custom-cards">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('..\\static\\img\\unsplash-photo-1.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">¿Quienes Somos?</h2>
+                <h3 class="pt-5 mb-4 display-6 lh-1 fw-bold"> somos...........</h3>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('..\\static\\img\\abeja.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">¿Que es Warming Axis?</h2>
+                <p class="pt-5 mt-5 mb-4 display-6 lh- fw-bold fs-5">Warming Axis es un sitio web que nacio de la
+                  idea...</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('..\\static\\img\\unsplash-photo-3.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Donaciones</h2>
+                <p class="pt-5 mt-5 mb-4 display-6 lh- fw-bold fs-5">Para que podamos seguir funcionando
+                  ayudanos...</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('..\\static\\img\\unsplash-photo-1.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Contactanos</h2>
+                <p class="pt-5 mt-5 mb-4 display-6 lh- fw-bold fs-5"> Somos un grupo de universitarios....</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('..\\static\\img\\abeja.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Herramientas Utilizadas</h2>
+                <p class="pt-5 mt-5 mb-4 display-6 lh- fw-bold fs-5">.........</p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('..\\static\\img\\unsplash-photo-3.jpg');">
+              <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Donaciones</h2>
+                <p class="pt-5 mt-5 mb-4 display-6 lh- fw-bold fs-5">Para que podamos seguir funcionando
+                  ayudanos...</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col">
-            HERRAMIENTAS UTILIZADAS
-        </div>
-        <div class="col">
-            ¿QUE ES WARMING AXIS?
-            probando git
-        </div>
-    </div>
-</div>
+      </div>
+
+</body>
 {% endblock %}

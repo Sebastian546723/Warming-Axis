@@ -1,0 +1,17 @@
+#fondo {
+    background: linear-gradient(rgba(5,7,12,0.5),rgba(5,7,12,0.5)), url("..\\img\\planet-295304.png");
+    background-position: center;
+    background-size: cover;
+}
+.rounded-4 { border-radius: .5rem; }
+.rounded-5 { border-radius: 1rem; }
+  
+.text-shadow-1 { text-shadow: 0 .125rem .25rem rgba(0, 0, 0, .25); }
+.text-shadow-2 { text-shadow: 0 .25rem .5rem rgba(0, 0, 0, .25); }
+.text-shadow-3 { text-shadow: 0 .5rem 1.5rem rgba(0, 0, 0, .25); }
+  
+.card-cover {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}

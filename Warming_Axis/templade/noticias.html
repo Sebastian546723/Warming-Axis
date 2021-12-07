@@ -1,28 +1,28 @@
 {% extends "base.html" %} 
-{% block title %} Noticias {% endblock %} 
-
 {% load static %}
-{% block cssBlock %}<link rel="Stylesheet" type="text/css" href="{% static 'css/noticias.css' %}"/>{% endblock %} 
-
+{% block cssBlock %} <link rel="Stylesheet" type="text/css" href="{% static 'css/noticias.css' %}" /> {% endblock %}
+{% block title %} Noticias {% endblock %} 
+{% block extra_head %} {% endblock %} 
 {% block seccion %} NOTICIAS {% endblock %} 
-
 {% block content %}
-<div class="mainBlock">
-    {% for i in articles%}
-    <div class="newsBlock">
-        <h3>{{i.title}}</h3>
-
-        <div class="newsIMG">
-            <img src="{{i.urlToImage}}" />
+<body id=fondo>
+    
+    
+    <main class="container">
+        <div class="row align-items-center">
+            {% for i in articles%}
+            <div class="col">
+                <div class="card text-center mx-auto align-middle w-100 p-3 mt-5" style="width: 22rem;">
+                    <img src="{{i.urlToImage}}" class="card-img-top newsIMG">
+                    <div class="card-body">
+                        <h5 class="card-title">{{i.title}}</h5>
+                        <p class="card-text">{{i.description}}</p>
+                        <a href="{{i.url}}" class="btn btn-primary stretched-link">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-
-        <p>{{i.description}}</p>
-
-        <div class="Links">
-            <a href="{{i.url}}">go to {{i.name}}</a>
-        </div>
-
-    </div>
-    {% endfor %}
-</div>
+    </main>
+<body>
 {% endblock%}
