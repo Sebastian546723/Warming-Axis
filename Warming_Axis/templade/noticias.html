@@ -1,6 +1,6 @@
 {% extends "base.html" %} 
 {% load static %}
-{% block cssBlock %} <link rel="Stylesheet" type="text/css" href="{% static 'css/noticias.css' %}" /> {% endblock %}
+{% block cssBlock %} <link rel="Stylesheet" type="text/css" href="{% static 'css/Noticias.css' %}" /> {% endblock %}
 {% block title %} Noticias {% endblock %} 
 {% block extra_head %} {% endblock %} 
 {% block seccion %} NOTICIAS {% endblock %} 
@@ -9,7 +9,7 @@
     <main class="container">
         {% if error  %}
         <div class = "error">
-            <p>Error cargando los articulos intente de nuevo mas tarde.</p>
+            <h3>Error cargando los artículos intente de nuevo mas tarde.</h3>
         </div>
         {% else %}
         <div class="row align-items-center">

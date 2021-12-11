@@ -13,18 +13,19 @@ NewsList = {'articles':[],
 def getIDs():
     IDs= list(ModelObject.News.objects.values('id'))
 
-    for i in range(1,4):
-        getNews = ModelObject.News.objects.get(id = IDs[-i]['id'])
+    if NewsList["error"] == False and len(ModelObject.News.objects.values('id')) != 0:
+        for i in range(1,4):
+            getNews = ModelObject.News.objects.get(id = IDs[-i]['id'])
 
-        NewsList['articles'].append(
-            {
-            "id": getNews.id,
-            "title": getNews.Title, 
-            "description": getNews.Description, 
-            "urlToImage": getNews.ImgNews, 
-            "url": getNews.URL, 
-            "name": getNews.Source}
-            )
+            NewsList['articles'].append(
+                {
+                "id": getNews.id,
+                "title": getNews.Title, 
+                "description": getNews.Description, 
+                "urlToImage": getNews.ImgNews, 
+                "url": getNews.URL, 
+                "name": getNews.Source}
+                )
 
 def searchNews():
     NewsList["articles"] = []
@@ -56,6 +57,7 @@ def searchNews():
                     newsLoaded += 1
         PageNews +=1
     getIDs()
+
 
 getIDs()
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block cssBlock %}
-<link rel="Stylesheet" type="text/css" href="{% static 'css/foro.css' %}" />{% endblock %} {% block title %} Foros {% endblock %} {% block seccion %} FOROS {% endblock %} {% block content %}
+<link rel="Stylesheet" type="text/css" href="{% static 'css/Foro.css' %}" />{% endblock %} {% block title %} Foros {% endblock %} {% block seccion %} FOROS {% endblock %} {% block content %}
 
 <div class="d-flex flex-column TitleWrapper">
     <h2 class="text-center">FOROS</h2>
@@ -8,6 +8,11 @@
 
 <div class="container ChatWrapper">
     <h3>FOROS DISPONIBLES</h3>
+    {% if error  %}
+        <div class = "error">
+            <p>Error cargando los artículos intente de nuevo mas tarde.</p>
+        </div>
+    {% else %}
     <div class="d-flex flex-row">
         {% for i in articles%}
         <div class="card col ChatCard">
@@ -19,7 +24,7 @@
         </div>
         {% endfor %}
     </div>
-
+    {% endif %}
     <h3 id="Open">FORO GENERAL ABIERTO</h3>
 </div>
 
