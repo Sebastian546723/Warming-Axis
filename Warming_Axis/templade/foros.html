@@ -8,6 +8,11 @@
 
 <div class="container ChatWrapper">
     <h3>FOROS DISPONIBLES</h3>
+    {% if error  %}
+        <div class = "error">
+            <p>Error cargando los artículos intente de nuevo mas tarde.</p>
+        </div>
+    {% else %}
     <div class="d-flex flex-row">
         {% for i in articles%}
         <div class="card col ChatCard">
@@ -19,7 +24,7 @@
         </div>
         {% endfor %}
     </div>
-
+    {% endif %}
     <h3 id="Open">FORO GENERAL ABIERTO</h3>
 </div>
 

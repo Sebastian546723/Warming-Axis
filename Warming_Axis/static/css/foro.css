@@ -52,3 +52,11 @@
 .ChatCard p{
     font-family: 'Dosis', sans-serif;
 }
+
+.error{
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    color: #ff3838;
+}
