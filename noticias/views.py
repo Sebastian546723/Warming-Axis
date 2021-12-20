@@ -11,6 +11,7 @@ NewsList = {'articles':[],
             'error': False}
 
 def getIDs():
+    NewsList["articles"] = []
     IDs= list(ModelObject.News.objects.values('id'))
 
     if NewsList["error"] == False and len(ModelObject.News.objects.values('id')) != 0:
@@ -28,9 +29,8 @@ def getIDs():
                 )
 
 def searchNews():
-    NewsList["articles"] = []
     NewsList["error"] = False
-    keyWords = ["climate change", "global Warming", "pollution", "climate crisis", "greenhouse effect"]
+    keyWords = ["climate change", "global Warming", "pollution", "climate crisis", "greenhouse effect", ]
     newsLoaded = 0
     PageNews = 0
     while newsLoaded < 3 and NewsList["error"] == False:
@@ -58,11 +58,9 @@ def searchNews():
         PageNews +=1
     getIDs()
 
-
-getIDs()
-
 def SearchLoop():
-    schedule.every().day.at("23:59").do(searchNews)
+    #schedule.every().day.at("23:59").do(searchNews)
+    schedule.every(30).seconds.do(searchNews)
 
     while True:
         schedule.run_pending()
@@ -74,6 +72,8 @@ hilo.start()
 def noticias(request):
     if len(ModelObject.News.objects.values('id')) == 0:
         searchNews()
+    if len(NewsList["articles"]) == 0:
+        getIDs()
 
     return render(request, "noticias.html", NewsList)
 
