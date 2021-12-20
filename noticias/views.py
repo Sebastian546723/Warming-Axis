@@ -30,7 +30,7 @@ def getIDs():
 
 def searchNews():
     NewsList["error"] = False
-    keyWords = ["climate change", "global Warming", "pollution", "climate crisis", "greenhouse effect", ]
+    keyWords = ["climate change", "global Warming", "climate crisis", "greenhouse effect", "fossil fuels", "renewable energy", "global temperature"]
     newsLoaded = 0
     PageNews = 0
     while newsLoaded < 3 and NewsList["error"] == False:
@@ -40,7 +40,7 @@ def searchNews():
             top_headlines = newsapi.get_everything(q=keyWords[PageNews],
                                     sort_by='relevancy',
                                     language='es')
-        if top_headlines["status"] == "error" or len(top_headlines["articles"]) == 0:
+        if top_headlines["status"] == "error":
             NewsList["error"] = True
 
         for a in top_headlines["articles"]:
