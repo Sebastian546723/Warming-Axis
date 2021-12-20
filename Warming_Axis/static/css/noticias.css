@@ -4,6 +4,10 @@
     background-size: cover;
 }
 
+.wrapperNews{
+    margin-bottom: 3%;
+}
+
 .newsIMG img{
     width: 100%;
     height: 15vw;

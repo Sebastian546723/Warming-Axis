@@ -65,7 +65,7 @@
         color: rgb(255, 0, 0);
         transition: 0.3s;
     }
-    
+
     #Lowicon {
         position: fixed;
         left: 3%;
@@ -134,7 +134,20 @@
             <li> <a href="{% url 'acerca' %}">Acerca De</a></li>
         </ul>
     </nav>
-    {% block content %}{% endblock %}
+
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+    <footer class="row footer">
+      <div class="col-12 bg-dark text-white text-center fs-6 fw-light">
+          Las APIs utilizadas para esta seccion son: 
+          <br> 1. Weather Unlocked <a href="http://www.weatherunlocked.com/" class="text-white" target="_blank">http://www.weatherunlocked.com/</a>
+          <br> 2. Air Quality Programmatic <a target="_blank" href="https://aqicn.org/api/es/" class="text-white">https://aqicn.org/api/es/</a>
+          <br> 3. News Api <a target="_blank" href="https://aqicn.org/api/es/" class="text-white">https://newsapi.org/</a>
+          <br> 4. Disqus <a target="_blank" href="https://aqicn.org/api/es/" class="text-white">https://disqus.com/</a>
+      </div>
+  </footer>
+
     <div id="Lowicon">
         <img src="{% static 'img\\logo(1).jpeg' %}" />
     </div>
