@@ -59,8 +59,8 @@ def searchNews():
     getIDs()
 
 def SearchLoop():
-    #schedule.every().day.at("23:59").do(searchNews)
-    schedule.every(30).seconds.do(searchNews)
+    schedule.every().day.at("23:59").do(searchNews)
+    #schedule.every(30).seconds.do(searchNews)
 
     while True:
         schedule.run_pending()
@@ -78,4 +78,8 @@ def noticias(request):
     return render(request, "noticias.html", NewsList)
 
 def foros(request):
+    if len(ModelObject.News.objects.values('id')) == 0:
+        searchNews()
+    if len(NewsList["articles"]) == 0:
+        getIDs()
     return render(request, "foros.html", NewsList)
